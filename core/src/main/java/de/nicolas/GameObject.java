@@ -3,6 +3,7 @@ package de.nicolas;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 public abstract class GameObject {
 
@@ -26,6 +27,11 @@ public abstract class GameObject {
         if (texture== null) return;
 
         batch.draw(texture, rect.getX(), rect.getY(), rect.getWidth(), rect.getHeight());
+    }
+
+    public Vector2 getCenter(Vector2 out){
+        out.set(rect.x + rect.width / 2, rect.y + rect.height / 2);
+        return out;
     }
 
     abstract void update(float delta);
